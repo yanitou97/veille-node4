@@ -28,22 +28,31 @@ let reponse = {
  };
 console.log(reponse);
  res.end(JSON.stringify(reponse));
+
+const fs = require('fs');
+
+ fs.appendFile((__dirname + "/public/data/" + 'membre.txt') , "," + JSON.stringify(reponse), function (err) {
+  		if (err) throw err;
+  		console.log('Sauvegardé');
+	});
 })
 
 /////////////////////////////////////////////////////////// Route /membre
-app.get('/membres', function (req, res) {
- console.log(__dirname);
- res.sendFile( __dirname + "/public/html/" + "ex_4_membre.htm" );
-})
-app.get('/membres', (req, res) =>{
- 	fs.readFile( __dirname + "/public/data/" + "membre.json", 'utf8', function (err, data) {
- 	console.log( data );
- 	res.end( data );
-})
- 
 
+app.get('membres', (req, res) =>{
+ 	
 })
 
+function copyData(source, destination) {
+ fs.readFile(source, 'utf8',  (err, data) => {
+ if (err) throw err;
+ // Effectuer un traitement modifier data
+ fs.writeFile (destination, data, (err) => {
+ if (err) throw err;
+ console.log('Terminé');
+ });
+ });
+}
 
 var server = app.listen(8081, function () {
  var host = server.address().address
@@ -52,3 +61,4 @@ var server = app.listen(8081, function () {
  console.log("Exemple l'application écoute sur http://%s:%s", host, port)
 
 })
+
