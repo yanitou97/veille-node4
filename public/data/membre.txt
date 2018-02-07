@@ -2,20 +2,17 @@
      "prenom" : "Eddy",
      "nom" : "Martin",
      "telephone" : "514-123-9834",
-     "courriel" : "emartin@cmaisonneuve.qc.ca",
-     "id": 1    
+     "courriel" : "emartin@cmaisonneuve.qc.ca"    
    },
    { 
       "prenom" : "Claude", 
      "nom" : "Fortin",
      "telephone" : "514-111-9114",
-     "courriel" : "cfortin@cmaisonneuve.qc.ca",
-     "id": 2   
+     "courriel" : "cfortin@cmaisonneuve.qc.ca"  
    },
    { 
       "prenom" : "Luc",
       "nom" : "Marcil",
      "telephone" : "514-222-9233",
-     "courriel" : "lmarcil@cmaisonneuve.qc.ca",
-     "id": 3    
+     "courriel" : "lmarcil@cmaisonneuve.qc.ca" 
    },{"prenom":"Yan","nom":"Nelson","telephone":"514-111-1111","courriel":"yan@hotmail.com"}

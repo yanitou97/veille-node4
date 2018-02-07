@@ -1,6 +1,20 @@
 const express = require('express');
 const app = express();
 app.use(express.static('public'));
+
+const transforme_en_tableau = (collection) =>
+{	
+	let chaine = '<table>'
+	for (elm of collection){
+		chaine += '<tr>';
+		for(p in elm){
+			chaine += '<td>' + elm[p] + '</td>';
+		}
+		chaine += '</tr>';
+	}
+	chaine += '</table>'
+	return chaine
+}
 /////////////////////////////////////////////////////////// Route /html/01_form.htm
 app.get('/formulaire', function (req, res) {
  console.log(__dirname);
@@ -41,10 +55,12 @@ const fs = require('fs');
 
 app.get('/membre', function (req, res) {
 	const fs = require('fs');
-	  fs.readFile( __dirname + "/public/data/" + "membre.txt", 'utf8', function (err, data) {
- 		console.log( data );
- 		res.end( data );
- 	});	
+	fs.readFile(__dirname + "/public/data/" + 'membre.txt', 'utf8', function (err, data) {
+ 		if (err) throw err;
+ 		let collection = JSON.parse('['+data+']');
+ 		res.end(transforme_en_tableau(collection));
+	});
+
 })
 
 
