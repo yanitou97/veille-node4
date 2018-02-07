@@ -39,20 +39,14 @@ const fs = require('fs');
 
 /////////////////////////////////////////////////////////// Route /membre
 
-app.get('membres', (req, res) =>{
- 	
+app.get('/membre', function (req, res) {
+	const fs = require('fs');
+	  fs.readFile( __dirname + "/public/data/" + "membre.txt", 'utf8', function (err, data) {
+ 		console.log( data );
+ 		res.end( data );
+ 	});	
 })
 
-function copyData(source, destination) {
- fs.readFile(source, 'utf8',  (err, data) => {
- if (err) throw err;
- // Effectuer un traitement modifier data
- fs.writeFile (destination, data, (err) => {
- if (err) throw err;
- console.log('Terminé');
- });
- });
-}
 
 var server = app.listen(8081, function () {
  var host = server.address().address
