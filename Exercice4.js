@@ -32,8 +32,16 @@ console.log(reponse);
 
 /////////////////////////////////////////////////////////// Route /membre
 
-app.get('membres', (req, res) =>{
+app.get('/membres', (req, res) =>{
+	app.get('/list', (req, res) => {
+ 	fs.readFile( __dirname + "/public/data/" + "membre.json", 'utf8', function (err, data) {
+ 	console.log( data );
+ 	res.end( data );
+ });
+})
+ 
 
+})
 
 })
 
