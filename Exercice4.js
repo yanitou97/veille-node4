@@ -4,7 +4,7 @@ app.use(express.static('public'));
 /////////////////////////////////////////////////////////// Route /html/01_form.htm
 app.get('/formulaire', function (req, res) {
  console.log(__dirname);
- res.sendFile( __dirname + "/public/html" + "01_form.htm" );
+ res.sendFile( __dirname + "/public/html/" + "01_form.htm" );
 })
 /////////////////////////////////////////////////////////// Route /
 app.get('/', (req, res) => {
@@ -31,7 +31,10 @@ console.log(reponse);
 })
 
 /////////////////////////////////////////////////////////// Route /membre
-
+app.get('/membres', function (req, res) {
+ console.log(__dirname);
+ res.sendFile( __dirname + "/public/html/" + "ex_4_membre.htm" );
+})
 app.get('/membres', (req, res) =>{
  	fs.readFile( __dirname + "/public/data/" + "membre.json", 'utf8', function (err, data) {
  	console.log( data );
@@ -41,7 +44,6 @@ app.get('/membres', (req, res) =>{
 
 })
 
-})
 
 var server = app.listen(8081, function () {
  var host = server.address().address
